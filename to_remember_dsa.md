@@ -313,3 +313,36 @@ T,S : (N-M+1)*M , 1
 ##### 3.Two pointer:
 T,S : N,1
 ##### 4.Double Hashing
+
+
+##  Unique Subsets:
+```
+class Solution {
+    HashSet<List<Integer>> res;
+    List<Integer> arr;
+    List<List<Integer>> ans;
+    public void fun(int[] nums,int idx,List<Integer> arr,HashSet<List<Integer>> res,List<List<Integer>> ans) {
+        if(idx >= nums.length) {
+            if(!res.contains(arr)) {
+                ans.add(new ArrayList<>(arr));
+                System.out.println(arr);
+            }
+            res.add(arr);
+            return;
+        }
+        arr.add(nums[idx]);
+        fun(nums,idx+1,arr,res,ans);
+        arr.remove(arr.size()-1);
+        fun(nums,idx+1,arr,res,ans);
+        
+    }
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        res = new HashSet<>();
+        arr = new ArrayList<>();
+        ans = new ArrayList<>();
+        fun(nums,0,arr,res,ans);
+        return ans;
+    }
+}
+```
