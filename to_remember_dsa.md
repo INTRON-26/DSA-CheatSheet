@@ -1,4 +1,9 @@
-# HashMap in JAVA:
+## List to int[] :
+```
+int arr[] = list.stream().mapToInt(Integer::intValue).toArray();
+```
+
+## HashMap in JAVA:
 
 ```
 HashMap<Integer,Integer> hm =  new HashMap<>();
